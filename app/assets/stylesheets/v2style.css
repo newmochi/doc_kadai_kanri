@@ -1,0 +1,45 @@
+/*
+itemlist version2 でbootstrapと共に使うスタイル
+bootstrapより前に読む
+*/
+div.verticalcenter {
+  position: absolute;
+  top:50%; left:50%;
+  width: 400px;
+  height: 300px;
+  margin-left: -200px;
+  margin-top: -150px;
+}
+body {
+  font-family: Georgia, "Lucida Grande", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: black;
+  background-color: #ffffff;
+}
+.oneline_center{
+  margin-top: 6px;
+  text-align: center;
+}
+.oneline_left{
+  margin-top: 6px;
+  float: left;
+}
+.oneline_right{
+  margin-top: 6px;
+  float: right;
+}
+.oneline_clear {
+  clear: both;
+}
+/*
+div.field_with_errors {
+  background-color: black;
+  padding: 2px;
+}
+*/
+/*これもうまくいかない。
+div.field_with_errors {
+  @extend div.has-error;
+}
+*/

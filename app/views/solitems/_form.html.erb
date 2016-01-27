@@ -1,0 +1,69 @@
+<%= form_for(@solitem) do |f| %>
+  <% if @solitem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@solitem.errors.count, "error") %> prohibited this solitem from being saved:</h2>
+
+      <ul>
+      <% @solitem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class=table-responsive>
+    <table class="table table-striped table-hover table-bordered">
+      <tr>
+        <th><%= f.label :req_id %></th>
+        <td>
+          <%= f.collection_select( :req_id, Req.all, :id, :rtitile ) %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :user_id %></th>
+        <td> <%= f.collection_select( :user_id, User.all, :id, :uname ) %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :sphase %></th>
+        <td><%= f.text_field :sphase, size: 32 %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :starget %></th>
+        <td><%= f.text_field :starget, size: 32 %></td>
+      </tr>
+      <tr>
+        <th rel="tooltip" data-toggle="tooltip" data-placement="top"
+       title="IE Firefoxの場合、YYYY-MM-DDで入力願います。ChromeならGUIでOKですが。"
+       data-original-title="Tooltip on left"><%= f.label :sduedate %></th>
+        <td><%= f.date_field :sduedate, :include_blank => true %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :stitle %></th>
+        <td><%= f.text_field :stitle, size: 64 %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :scontent %></th>
+        <td><%= f.text_field :scontent, size: 64 %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :slevel %></th>
+        <td><%=  f.number_field :slevel, size: 16 %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :saction %></th>
+        <td><%= f.text_area :saction, rows: 5, cols: 64 %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :snote %></th>
+        <td><%= f.text_field :snote, size: 64 %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :snotedetail %></th>
+        <td><%= f.text_area :snotedetail, rows: 10, cols: 64 %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

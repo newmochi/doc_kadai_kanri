@@ -1,0 +1,75 @@
+<% @page_title = t('activerecord.models.solitem') %>
+<h3 style="border-style: groove; padding: 4px;"><%= @page_title %></h3>
+<p><%= link_to "Excel出力(通常の参照はこちらで)",:report %></p>
+<p><%= link_to "CSV出力(Excelない方?向け)",:download_solitems %></p>
+<%= link_to "CSVJOIN出力[制限有：Excelで①列Aクリック②データタブの区切り位置選択→③カンマで区切る",:downloadall_solitems %></p>
+
+<%= form_tag :search_solitems, method: :get do %>
+<p>ユーザ名(サーチ＆一括編集頁へ)　<%= text_field_tag "q1", params[:q1] %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+
+
+<div class=table-responsive>
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th><%=t('activerecord.attributes.solitem.id')%></th>
+      <th>オーナー</th>
+      <th colspan="2" class="warning">要件<br>章節項&ampID</th>
+      <th rel="tooltip" data-toggle="tooltip" data-placement="top"
+       title="済 or ブランク"
+       data-original-title="Tooltip on left">
+      <%=t('activerecord.attributes.solitem.sphase')%></th>
+      <th rel="tooltip" data-toggle="tooltip" data-placement="top"
+       title="済 or ブランク" data-original-title="Tooltip on left">
+      <%=t('activerecord.attributes.solitem.starget')%></th>
+      <th><%=t('activerecord.attributes.solitem.sduedate')%></th>
+      <th><%=t('activerecord.attributes.solitem.stitle')%></th>
+      <th><%=t('activerecord.attributes.solitem.scontent')%></th>
+      <th rel="tooltip" data-toggle="tooltip" data-placement="top"
+       title="5=4かつ別タスクフォースで仕様決定早急要、
+4=担当割当後見積/工期見直要、3=見積/工期見直要、
+2=提案/設計で吸収、1=設計段階で吸収、0=影響無視可"
+       data-original-title="Tooltip on left">
+      <%=t('activerecord.attributes.solitem.slevel')%></th>
+      <th><%=t('activerecord.attributes.solitem.saction')%></th>
+      <th><%=t('activerecord.attributes.solitem.snote')%></th>
+      <th><%=t('activerecord.attributes.solitem.snotedetail')%></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% if @solitems.present? %>
+  <tbody>
+    <% @solitems.each do |solitem| %>
+      <tr>
+        <td><%= solitem.id %></td>
+        <td><%= solitem.user.uname %></td>
+        <td><%= solitem.req.rchap %>.<%= solitem.req.rsec %>.
+        <%= solitem.req.rsubsec %></td>
+        <td><%= solitem.req.id %></td>
+        <td><%= solitem.sphase %></td>
+        <td><%= solitem.starget %></td>
+        <td><%= solitem.sduedate %></td>
+        <td><%= solitem.stitle %></td>
+        <td><%= solitem.scontent %></td>
+        <td><%= solitem.slevel %></td>
+        <td><%= solitem.saction %></td>
+        <td><%= solitem.snote %></td>
+        <td><%= solitem.snotedetail %></td>
+        <td><%= link_to '表示', solitem %></td>
+        <td><%= link_to '編集', edit_solitem_path(solitem) %></td>
+        <td><%= link_to '削除', solitem, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <% end %>
+</table>
+</div>
+<% if @solitems.present? %>
+  <%= will_paginate @solitems, renderer: BootstrapPagination::Rails  %>
+<% end %>
+<br>
+
+<%= link_to '新規', new_solitem_path %>

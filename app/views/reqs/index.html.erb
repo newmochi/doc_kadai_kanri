@@ -1,0 +1,49 @@
+<% @page_title = t('activerecord.models.req') %>
+<h3 style="border-style: groove; padding: 4px;"><%= @page_title %></h3>
+<div class=well well-sm">
+  要件IDは、システムが自動で生成します。
+運用上、ソリューション課題には必ず(1件の)要件IDを対応付けお願いします。
+</div>
+<div class=table-responsive>
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>要件ID</th>
+      <th>執筆者</th>
+      <th><%=t('activerecord.attributes.req.rchap')%></th>
+      <th><%=t('activerecord.attributes.req.rsec')%></th>
+      <th><%=t('activerecord.attributes.req.rsubsec')%></th>
+      <th><%=t('activerecord.attributes.req.rseqno')%></th>
+      <th><%=t('activerecord.attributes.req.rtitile')%></th>
+      <th><%=t('activerecord.attributes.req.rcontent')%></th>
+      <th><%=t('activerecord.attributes.req.rnote')%></th>
+      <th><%=t('activerecord.attributes.req.rnotedetail')%></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reqs.each do |req| %>
+      <tr>
+        <td><%= req.id %></td>
+        <td><%= req.user.uname %></td>
+        <td><%= req.rchap %></td>
+        <td><%= req.rsec %></td>
+        <td><%= req.rsubsec %></td>
+        <td><%= req.rseqno %></td>
+        <td><%= req.rtitile %></td>
+        <td><%= req.rcontent %></td>
+        <td><%= req.rnote %></td>
+        <td><%= req.rnotedetail %></td>
+        <td><%= link_to '表示', req %></td>
+        <td><%= link_to '編集', edit_req_path(req) %></td>
+        <td><%= link_to '削除', req, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%= link_to '新規', new_req_path %>

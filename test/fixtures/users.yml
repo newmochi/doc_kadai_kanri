@@ -1,0 +1,67 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+nobody:
+  id: 1
+  uname: nobody
+  upass: P@ssw0rd
+  uemail: nobody@toshiba-sol.co.jp
+
+iwamoto:
+  id: 2
+  uname: iwamoto
+  upass: P@ssw0rd
+
+kawai:
+  id: 3
+  uname: kawai
+  upass: P@ssw0rd
+
+kuno:
+  id: 4
+  uname: kuno
+  upass: P@ssw0rd
+
+mochizuki:
+  id: 5
+  uname: mochizuki
+  upass: P@ssw0rd
+
+mori:
+  id: 6
+  uname: mori
+  upass: P@ssw0rd
+
+nakamura:
+  id: 7
+  uname: nakamura
+  upass: P@ssw0rd
+
+ota:
+  id: 8
+  uname: ota
+  upass: P@ssw0rd
+
+sasaki:
+  id: 9
+  uname: sasaki
+  upass: P@ssw0rd
+
+satoh:
+  id: 10
+  uname: satoh
+  upass: P@ssw0rd
+
+satot:
+  id: 11
+  uname: satot
+  upass: P@ssw0rd
+
+shindo:
+  id: 12
+  uname: shindo
+  upass: P@ssw0rd
+
+shiromura:
+  id: 13
+  uname: shiromura
+  upass: P@ssw0rd

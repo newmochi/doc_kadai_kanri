@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class=table-responsive>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>執筆者(実際入っているuserID)</th>
+    <td><%= @req.user.uname %>(<%= @req.user.id %>)</td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.req.rchap')%></th>
+    <td><%= @req.rchap %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.req.rsec')%></th>
+    <td><%= @req.rsec %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.req.rsubsec')%></th>
+    <td><%= @req.rsubsec %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.req.rseqno')%></th>
+    <td><%= @req.rseqno %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.req.rtitile')%></th>
+    <td><%= @req.rtitile %></td>
+  </tr>
+
+  <tr>
+    <th><%=t('activerecord.attributes.req.rcontent')%></th>
+    <td><%= @req.rcontent %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.req.rnote')%></th>
+    <td><%= @req.rnote %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.req.rnotedetail')%></th>
+    <td><%= @req.rnotedetail %></td>
+  </tr>
+</table>
+</div>
+
+<%= link_to '編集', edit_req_path(@req) %> |
+<%= link_to '戻る', reqs_path %>

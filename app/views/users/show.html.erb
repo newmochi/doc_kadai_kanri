@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class=table-responsive>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th><%=t('activerecord.attributes.user.id')%></th>
+    <td><%= @user.id %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.user.uname')%></th>
+    <td><%= @user.uname %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.user.upass')%></th>
+    <td><%= @user.upass %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.user.uemail')%></th>
+    <td><%= @user.uemail %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.user.unote')%></th>
+    <td><%= @user.unote %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.user.unotedetail')%></th>
+    <td><%= @user.unotedetail %></td>
+  </tr>
+
+</table>
+</div>
+<%= link_to '編集', edit_user_path(@user) %> |
+<%= link_to '戻る', users_path %>

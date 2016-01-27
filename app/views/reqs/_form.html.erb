@@ -1,0 +1,53 @@
+<%= form_for(@req) do |f| %>
+  <% if @req.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@req.errors.count, "error") %> prohibited this req from being saved:</h2>
+
+      <ul>
+      <% @req.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.collection_select( :user_id, User.all, :id, :uname ) %>
+  </div>
+  <div class="field">
+    <%= f.label :rchap %><br>
+    <%= f.number_field :rchap %>
+  </div>
+  <div class="field">
+    <%= f.label :rsec %><br>
+    <%= f.number_field :rsec %>
+  </div>
+  <div class="field">
+    <%= f.label :rsubsec %><br>
+    <%= f.number_field :rsubsec %>
+  </div>
+  <div class="field">
+    <%= f.label :rseqno %><br>
+    <%= f.number_field :rseqno %>
+  </div>
+  <div class="field">
+    <%= f.label :rtitile %><br>
+    <%= f.text_field :rtitile %>
+  </div>
+  <div class="field">
+    <%= f.label :rcontent %><br>
+    <%= f.text_area :rcontent %>
+  </div>
+  <div class="field">
+    <%= f.label :rnote %><br>
+    <%= f.text_field :rnote %>
+  </div>
+  <div class="field">
+    <%= f.label :rnotedetail %><br>
+    <%= f.text_area :rnotedetail %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<div class=table-responsive>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>関連要件</th>
+    <td><%= @solitem.req.rchap %>.<%= @solitem.req.rsec %>
+.<%= @solitem.req.rsubsec %>
+&nbsp;<%= truncate(@solitem.req.rtitile, length: 40) %>
+(<%= @solitem.req.id %>)</td>
+  </tr>
+  <tr>
+    <th>責任者(ID)</th>
+    <td><%= @solitem.user.uname %>(<%= @solitem.user.id %>)</td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.solitem.id')%></th>
+    <td><%= @solitem.id %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.solitem.sphase')%></th>
+    <td><%= @solitem.sphase %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.solitem.starget')%></th>
+    <td><%= @solitem.starget %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.solitem.sduedate')%></th>
+    <td><%= @solitem.sduedate %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.solitem.stitle')%></th>
+    <td><%= @solitem.stitle %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.solitem.scontent')%></th>
+    <td><%= @solitem.scontent %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.solitem.slevel')%></th>
+    <td><%= @solitem.slevel %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.solitem.saction')%></th>
+    <td><%= @solitem.saction %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.solitem.snote')%></th>
+    <td><%= @solitem.snote %></td>
+  </tr>
+  <tr>
+    <th><%=t('activerecord.attributes.solitem.snotedetail')%></th>
+    <td><%= @solitem.snotedetail %></td>
+  </tr>
+</table>
+</div>
+<%= link_to '編集', edit_solitem_path(@solitem) %> |
+<%= link_to '戻る', solitems_path %>
